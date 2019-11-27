@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>io.humourmind</groupId>
 	<artifactId>flight-ops</artifactId>
-	<version>0.2.0</version>
+	<version>0.3.0</version>
 	<name>flight-ops</name>
 	<description>Demo project for Spring Boot</description>
 
@@ -40,11 +40,6 @@
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 		</dependency>
-		<!--<dependency>
-			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-stream-reactive</artifactId>
-		</dependency>-->
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>

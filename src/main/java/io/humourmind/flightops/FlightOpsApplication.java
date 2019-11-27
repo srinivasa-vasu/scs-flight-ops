@@ -11,6 +11,7 @@ import org.springframework.context.annotation.Bean;
 
 import io.humourmind.flightops.domain.FlightDelay;
 import io.humourmind.flightops.domain.FlightSchedule;
+import reactor.core.publisher.Flux;
 
 @SpringBootApplication
 @EnableBinding(Processor.class)
@@ -21,10 +22,11 @@ public class FlightOpsApplication {
 	}
 
 	@Bean
-	public Function<FlightSchedule, FlightDelay> flyTimeProcessor() {
-		return schedule -> FlightDelay.builder().flightNo(schedule.getFlightNo())
-				.sta(schedule.getSta()).ata(schedule.getAta()).delayInterval(Duration
+	public Function<Flux<FlightSchedule>, Flux<FlightDelay>> flyTimeProcessor() {
+		return streamElement -> streamElement.map(schedule -> FlightDelay.builder()
+				.flightNo(schedule.getFlightNo()).sta(schedule.getSta())
+				.ata(schedule.getAta()).delayInterval(Duration
 						.between(schedule.getSta(), schedule.getAta()).toMinutes())
-				.build();
+				.build());
 	}
 }
