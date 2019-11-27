@@ -9,5 +9,8 @@ spring:
           destination: delay
           producer:
             requiredGroups: flight-watch
+      function:
+        definition: flyTimeProcessor
+
 server:
   port: 8081
