@@ -1,0 +1,13 @@
+spring:
+  cloud:
+    stream:
+      bindings:
+        input:
+          destination: schedule
+          group: flight-ops
+        output:
+          destination: delay
+          producer:
+            requiredGroups: flight-watch
+server:
+  port: 8081
