@@ -11,6 +11,17 @@ spring:
             requiredGroups: flight-watch
       function:
         definition: flyTimeProcessor
+  application:
+    name: flight-ops
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+  metrics:
+    export:
+      prometheus:
+        enabled: true
 
 server:
   port: 8081
