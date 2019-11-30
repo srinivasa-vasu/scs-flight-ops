@@ -3,9 +3,11 @@ spring:
     stream:
       bindings:
         input:
+          binder: rabbit
           destination: schedule
-#          group: flight-ops
+          group: flight-ops
         output:
+          binder: kafka
           destination: delay
 #          producer:
 #            requiredGroups: flight-watch
